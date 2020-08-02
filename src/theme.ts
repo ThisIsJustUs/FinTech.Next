@@ -35,6 +35,10 @@ export const base = {
     borders: {
         border: 'solid blue 1px',
     },
+    shadows: {
+        primary: '0px 10px 16px rgba(0, 0, 0, 0.16)',
+        secondary: '0px 10px 21px rgba(20, 84, 120, 0.1);',
+    },
     styles: {
         root: {
             fontFamily: 'body',

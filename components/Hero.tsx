@@ -1,46 +1,58 @@
+/** @jsx jsx */
+import { jsx, ThemeProvider, Styled } from 'theme-ui';
 import { Layout as ALayout, Typography, Button } from 'antd';
+import theme from '../src/theme';
 import { Flex } from 'reflexbox';
 
 const { Content } = ALayout;
-const { Title } = Typography;
+
+const HeroContainer = {
+    padding: ['50px 10px', '10px', '100px'],
+    width: ['90%', '80%', '80%'],
+};
 
 export const Hero = () => {
     return (
-        <Content style={{ backgroundColor: '#f7f7f7' }}>
-            <div
-                className='site-layout-content'
-                style={{ display: 'flex', justifyContent: 'center' }}
-            >
-                <div style={{ padding: '100px', width: '50%' }}>
-                    <Title style={{ textAlign: 'center' }}>
-                        Forget Everything You Know About Insurance
-                    </Title>
-                    <Title
-                        level={4}
-                        style={{
-                            textAlign: 'center',
-                            fontWeight: 'normal',
-                        }}
-                    >
-                        Instant everything. Great prices. Big heart.
-                    </Title>
-                    <Flex
-                        style={{ margin: '40px 0px' }}
-                        justifyContent='center'
-                    >
-                        <Button
-                            style={{
-                                width: '230px',
-                                height: '50px',
-                            }}
-                            type='primary'
-                            shape='round'
+        <ThemeProvider theme={theme}>
+            <Content style={{ backgroundColor: '#f7f7f7' }}>
+                <div
+                    className='site-layout-content'
+                    style={{
+                        display: 'flex',
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                    }}
+                >
+                    <div sx={HeroContainer}>
+                        <Styled.h2 sx={{ textAlign: 'center' }}>
+                            Forget Everything You Know About Insurance
+                        </Styled.h2>
+                        <Styled.h5
+                            sx={{ textAlign: 'center', fontWeight: 'normal' }}
                         >
-                            CHECK OUR PRICES
-                        </Button>
-                    </Flex>
+                            Instant everything. Great prices. Big heart.
+                        </Styled.h5>
+                        <Flex
+                            style={{ margin: '40px 0px' }}
+                            justifyContent='center'
+                        >
+                            <Button
+                                sx={{
+                                    width: '230px',
+                                    height: '50px',
+                                    backgroundColor: 'secondary',
+                                    borderColor: 'transparent',
+                                    boxShadow: 'secondary',
+                                }}
+                                type='primary'
+                                shape='round'
+                            >
+                                CHECK OUR PRICES
+                            </Button>
+                        </Flex>
+                    </div>
                 </div>
-            </div>
-        </Content>
+            </Content>
+        </ThemeProvider>
     );
 };
