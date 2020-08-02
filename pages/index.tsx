@@ -1,48 +1,39 @@
-import Link from 'next/link';
 import { Layout } from '../components/Layout';
 import { Hero } from '../components/Hero';
-import { Row, Col, Typography, Card } from 'antd';
+import { Card } from '../components/Card';
+import { Row, Col } from 'antd';
 import { Flex } from 'reflexbox';
-
-const { Title } = Typography;
-
-const cardBox = {
-    display: 'flex',
-    justifyContent: 'center',
-    padding: '10px 20px',
-    backgroundColor: 'red',
-};
-
-const CustomCard = () => {
-    return (
-        <Card bordered={false}>
-            <Flex justifyContent='center'>
-                <Title style={{ width: '30%' }} level={2}>
-                    Contents Insurance
-                </Title>
-            </Flex>
-        </Card>
-    );
-};
 
 export default function Index() {
     return (
         <div>
             <Layout>
                 <Hero />
-                <div className='site-card-wrapper'>
+                <Flex className='site-card-wrapper' justifyContent='center'>
                     <Row style={{ margin: '0px 20px' }} gutter={32}>
-                        <Col style={{ backgroundColor: 'red' }} span={8}>
-                            <CustomCard />
+                        <Col span={8}>
+                            <Card
+                                title='Contents Insurance'
+                                price='2€'
+                                cta='Get Contents'
+                            />
                         </Col>
                         <Col span={8}>
-                            <CustomCard />
+                            <Card
+                                title='Liability Insurance'
+                                price='2€'
+                                cta='Get Liability'
+                            />
                         </Col>
                         <Col span={8}>
-                            <CustomCard />
+                            <Card
+                                title='Contents and Liability Package'
+                                price='4€'
+                                cta='Get BOTH!'
+                            />
                         </Col>
                     </Row>
-                </div>
+                </Flex>
             </Layout>
         </div>
     );
